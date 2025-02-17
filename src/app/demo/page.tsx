@@ -1,9 +1,46 @@
+"use client";
+
 import styles from "./demoPage.module.css";
 import Image from "next/image";
 import demoOboarding from "/public/images/demoOnboarding.png";
 import SpaceAILogo from "@/components/Icons/SpaceAILogo";
+import { useState, FormEvent, ChangeEvent } from "react";
+
+interface FormState {
+  productLink: string;
+  brandLink: string;
+  mediaFiles: FileList | null;
+}
 
 export default function Demo() {
+  const [formData, setFormData] = useState<FormState>({
+    productLink: "",
+    brandLink: "",
+    mediaFiles: null,
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { id, value, files } = e.target;
+
+    if (id === "mediaFiles" && files) {
+      setFormData((prev) => ({
+        ...prev,
+        mediaFiles: files,
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [id]: value,
+      }));
+    }
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.logoContainer}>
@@ -25,18 +62,29 @@ export default function Demo() {
             Let's start with a few details
           </div>
         </div>
-        <form className={styles.formContainer}>
+        <form className={styles.formContainer} onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
-            <label htmlFor="productLink">Product Link</label>
-            <span className={styles.helperText}>
-              Currently we only support Amazon links
-            </span>
-            <input type="url" id="productLink" className={styles.input} />
+            <label htmlFor="productLink">Amazon Product Link</label>
+            <input
+              type="url"
+              id="productLink"
+              className={styles.input}
+              value={formData.productLink}
+              onChange={handleInputChange}
+              required
+            />
           </div>
 
           <div className={styles.inputGroup}>
             <label htmlFor="brandLink">Brand Link</label>
-            <input type="url" id="brandLink" className={styles.input} />
+            <input
+              type="url"
+              id="brandLink"
+              className={styles.input}
+              value={formData.brandLink}
+              onChange={handleInputChange}
+              required
+            />
           </div>
 
           <div className={styles.inputGroup}>
@@ -52,9 +100,12 @@ export default function Demo() {
                 multiple
                 accept="image/*,video/*"
                 className={styles.fileInput}
+                onChange={handleInputChange}
               />
               <div className={styles.uploadText}>
-                Drop your media files here or click to browse
+                {formData.mediaFiles && formData.mediaFiles.length > 0
+                  ? `${formData.mediaFiles.length} files selected`
+                  : "Drop your media files here or click to browse"}
               </div>
             </div>
           </div>
