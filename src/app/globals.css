@@ -35,6 +35,20 @@ a {
   text-decoration: none;
 }
 
+@font-face {
+  font-family: "NM-Medium";
+  src: url("/fonts/NeueMontreal-Medium.otf") format("opentype");
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NM-Regular";
+  src: url("/fonts/NeueMontreal-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

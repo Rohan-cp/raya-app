@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  background-color: white;
+  background-color: #ffe3cf;
   color: #1a1a1a;
   height: 100vh;
 }
@@ -47,12 +47,21 @@
 
 .body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 130px;
+  gap: 4px;
 }
 
 .bodyHeaderText {
   color: #1a1a1a;
-  font-size: 18px;
+  font-size: 45px;
   font-weight: 500;
+}
+
+.bodyHeaderSecondaryText {
+  color: #1a1a1a;
+  font-size: 22px;
+  font-weight: 400;
 }
