@@ -49,6 +49,13 @@ a {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Trebuchet";
+  src: url("/fonts/Trebuchet-MS.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

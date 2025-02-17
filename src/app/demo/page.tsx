@@ -1,23 +1,29 @@
 import styles from "./demoPage.module.css";
 import Image from "next/image";
-import demoOboarding from "/public/images/demoOnboarding.png"
+import demoOboarding from "/public/images/demoOnboarding.png";
+import SpaceAILogo from "@/components/Icons/SpaceAILogo";
 
 export default function Demo() {
   return (
     <div className={styles.main}>
+      <div className={styles.logoContainer}>
+        <SpaceAILogo />
+      </div>
       <div className={styles.imageSection}>
         <Image
           src={demoOboarding}
           alt="Product demonstration"
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
           priority
         />
       </div>
       <div className={styles.body}>
         <div className={styles.titleSection}>
           <div>Make your product go viral</div>
-          <div>Let's start with a few details</div>
+          <div className={styles.secondaryText}>
+            Let's start with a few details
+          </div>
         </div>
         <form className={styles.formContainer}>
           <div className={styles.inputGroup}>

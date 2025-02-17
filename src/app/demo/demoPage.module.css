@@ -16,7 +16,9 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    padding: 0 5%;
+    padding-left: 5%;
+    padding-right: 17%;
+    gap: 30px;
     overflow-y: auto;
 }
 
@@ -39,16 +41,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 30px 0;
-    font-size: 26px;
+    padding-top: 30%;
+    gap: 26px;
+    font-size: 31px;
+    font-family: "Trebuchet";
     font-weight: 500;
+    color: #333333;
 }
 
 .formContainer {
     max-width: 600px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .inputGroup {
@@ -57,13 +59,13 @@
 
 .inputGroup label {
     display: block;
-    margin-bottom: 8px;
     font-weight: 500;
     color: #1a1a1a;
 }
 
 .input {
     width: 100%;
+    margin-top: 10px;
     padding: 12px;
     background-color: white;
     border: 1px solid #dfe0e1;
@@ -79,13 +81,13 @@
 
 .helperText {
     display: block;
-    margin-top: 6px;
     font-size: 14px;
     color: #666;
 }
 
 .uploadArea {
-    border: 2px dashed #e0e0e0;
+    margin-top: 18px;
+    border: 1px dashed #e0e0e0;
     padding: 30px;
     text-align: center;
     position: relative;
@@ -114,6 +116,7 @@
 
 .submitButton {
     width: 250px;
+    margin-top: 50px;
     padding: 14px;
     background-color: #ffe3cf;
     border: none;
@@ -126,4 +129,16 @@
 
 .submitButton:hover {
     background-color: #ffd6b8;
+}
+
+.secondaryText {
+    font-family: "Trebuchet";
+    font-size: 19px;
+}
+
+.logoContainer {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 10;
 }
